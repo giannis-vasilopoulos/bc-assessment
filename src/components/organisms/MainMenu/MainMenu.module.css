@@ -1,0 +1,23 @@
+.mainMenu {
+  .list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .item {
+      padding: 0.5rem;
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
