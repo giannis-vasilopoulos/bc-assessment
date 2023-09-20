@@ -1,4 +1,4 @@
-import { MainLayout } from "@/components/layouts/MainLayout";
+import { MainLayout } from "@/components/layouts";
 import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
