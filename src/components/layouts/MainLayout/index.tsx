@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import styles from "./styles.module.css";
+import styles from "./MainLayout.module.css";
 import Link from "next/link";
-import Logo from "@/assets/svg/logo.svg";
 import { SocialMenu } from "@/components/molecules";
+import Logo from "@/assets/svg/logo.svg";
 
 type MainLayoutProps = {
   children: ReactNode;

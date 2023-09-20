@@ -1,7 +1,7 @@
 import Facebook from "@/assets/svg/facebook.svg";
 import Twitter from "@/assets/svg/twitter.svg";
 import Instagram from "@/assets/svg/instagram.svg";
-import styles from "./styles.module.css";
+import styles from "./SocialMenu.module.css";
 
 export function SocialMenu() {
   return (
