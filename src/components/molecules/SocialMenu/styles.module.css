@@ -1,0 +1,7 @@
+.menuList {
+  display: flex;
+  list-style-type: none;
+}
+.menuList li {
+  list-style-type: none;
+}

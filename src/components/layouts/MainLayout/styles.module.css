@@ -1,0 +1,11 @@
+.topbar {
+  background-color: var(--red);
+  color: var(--white);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+}
