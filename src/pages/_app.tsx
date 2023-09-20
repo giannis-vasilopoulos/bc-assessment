@@ -1,6 +1,7 @@
-import "@/styles/globals.css";
+import MainLayout from "@/components/layouts/MainLayout";
 import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
+import "@/styles/globals.css";
 
 const defaultSeoValues = {
   title: "All about Bet",
@@ -18,9 +19,9 @@ const defaultSeoValues = {
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <MainLayout>
       <DefaultSeo {...defaultSeoValues} />
       <Component {...pageProps} />
-    </>
+    </MainLayout>
   );
 }
