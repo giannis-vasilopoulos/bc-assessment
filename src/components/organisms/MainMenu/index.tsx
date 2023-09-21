@@ -26,7 +26,7 @@ export function MainMenu() {
           >
             Competities <Arrow />
             {isDropdownVisible && (
-              <ul>
+              <ul className={styles.submenu}>
                 <li>sub menu 1</li>
                 <li>sub menu 2</li>
                 <li>sub menu 3</li>
