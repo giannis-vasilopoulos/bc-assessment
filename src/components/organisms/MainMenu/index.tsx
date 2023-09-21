@@ -2,23 +2,19 @@ import { SearchInput } from "@/components/molecules/SearchInput";
 import styles from "./MainMenu.module.css";
 import Arrow from "@/assets/svg/arrow-down.svg";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export function MainMenu() {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<number | null>(null);
 
   const handleMouseEnter = () => {
     setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    if (dropdownRef.current !== null) {
-      clearTimeout(dropdownRef.current);
-    }
-    dropdownRef.current = window.setTimeout(() => {
+    setTimeout(() => {
       setIsOpen(false);
-    }, 250);
+    }, 500);
   };
 
   return (
