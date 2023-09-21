@@ -9,6 +9,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      cursor: pointer;
     }
   }
 }
@@ -25,13 +26,14 @@
 .submenu {
   position: absolute;
   left: 0;
-  top: 40px;
+  top: 100%;
   list-style-type: none;
   background-color: var(--grayscale-dark);
   color: var(--white);
   width: 100%;
   display: flex;
   justify-content: space-between;
+  transition: all ease 0.3s;
 }
 .submenu li {
   padding: 0.5rem;

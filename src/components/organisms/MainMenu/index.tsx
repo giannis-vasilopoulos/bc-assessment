@@ -1,18 +1,24 @@
 import { SearchInput } from "@/components/molecules/SearchInput";
 import styles from "./MainMenu.module.css";
 import Arrow from "@/assets/svg/arrow-down.svg";
-import { useState } from "react";
 import Link from "next/link";
+import { useRef, useState } from "react";
 
 export function MainMenu() {
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<number | null>(null);
 
   const handleMouseEnter = () => {
-    setDropdownVisible(true);
+    setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    setDropdownVisible(false);
+    if (dropdownRef.current !== null) {
+      clearTimeout(dropdownRef.current);
+    }
+    dropdownRef.current = window.setTimeout(() => {
+      setIsOpen(false);
+    }, 250);
   };
 
   return (
@@ -28,7 +34,7 @@ export function MainMenu() {
             onMouseLeave={handleMouseLeave}
           >
             Competities <Arrow />
-            {isDropdownVisible && (
+            {isOpen && (
               <ul className={styles.submenu}>
                 <li>
                   <Link href="/">sub menu 1</Link>
