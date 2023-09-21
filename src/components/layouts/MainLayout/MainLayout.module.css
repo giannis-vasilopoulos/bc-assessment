@@ -26,17 +26,44 @@
     padding-bottom: 1.31rem;
     margin-bottom: 1rem;
     padding-left: 0;
+    align-items: flex-start;
     padding-right: 0;
     border-bottom: 0.125rem solid #4a4a4a;
   }
 }
 
-.companyDetails {
+.footer ul {
   list-style-type: none;
+}
+
+.companyDetails {
   margin-top: 1rem;
 }
 
 .footerSocial {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.footerMenus {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-basis: 60%;
+}
+
+.footerMenus li {
+  padding: 0.5rem;
+}
+
+.bottomBar {
+  max-width: var(--max-width);
+  margin: auto;
+  justify-content: space-between;
+  display: flex;
+}
+.bottomBarLogos {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
