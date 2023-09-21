@@ -1,0 +1,123 @@
+{
+  "mainMenu": [
+    {
+      "id": "menu-1",
+      "link": "/",
+      "title": "Livescore"
+    },
+    {
+      "id": "menu-2",
+      "link": "/",
+      "title": "Competities",
+      "submenu": [
+        {
+          "id": "submenu-1",
+          "title": "Syb Menu 1",
+          "link": "#"
+        },
+        {
+          "id": "submenu-2",
+          "title": "Syb Menu 2",
+          "link": "#"
+        },
+        {
+          "id": "submenu-3",
+          "title": "Syb Menu 3",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "id": "menu-3",
+      "link": "/",
+      "title": "News"
+    },
+    {
+      "id": "menu-4",
+      "link": "/",
+      "title": "Bookmakers"
+    },
+    {
+      "id": "menu-5",
+      "link": "/",
+      "title": "Bookmakers",
+      "submenu": [
+        {
+          "id": "submenu-1",
+          "title": "Syb Menu 1",
+          "link": "#"
+        },
+        {
+          "id": "submenu-2",
+          "title": "Syb Menu 2",
+          "link": "#"
+        },
+        {
+          "id": "submenu-3",
+          "title": "Syb Menu 3",
+          "link": "#"
+        }
+      ]
+    }
+  ],
+  "footer": [
+    [
+      {
+        "id": "footer-1",
+        "link": "/",
+        "title": "News"
+      },
+      {
+        "id": "footer-2",
+        "link": "/",
+        "title": "Archive"
+      },
+      {
+        "id": "footer-3",
+        "link": "/",
+        "title": "Authors"
+      }
+    ],
+    [
+      {
+        "id": "footer-4",
+        "link": "/",
+        "title": "Competitions"
+      },
+      {
+        "id": "footer-5",
+        "link": "/",
+        "title": "Livescore"
+      },
+      {
+        "id": "footer-6",
+        "link": "/",
+        "title": "Transfernews"
+      }
+    ],
+    [
+      {
+        "id": "footer-7",
+        "link": "/",
+        "title": "Contact"
+      },
+      {
+        "id": "footer-8",
+        "link": "/",
+        "title": "Disclaimer"
+      }
+    ],
+    [
+      {
+        "id": "footer-9",
+        "link": "/",
+        "title": "Privacy Policy"
+      },
+      {
+        "id": "footer-10",
+        "link": "/",
+        "title": "Cookie Policy"
+      }
+    ]
+  ]
+}

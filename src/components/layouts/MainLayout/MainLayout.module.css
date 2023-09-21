@@ -1,3 +1,6 @@
+.header {
+  background-color: var(--white);
+}
 .topbar {
   background-color: var(--red);
   color: var(--white);

@@ -18,7 +18,7 @@ type MainLayoutProps = {
 export const MainLayout = (props: MainLayoutProps) => {
   return (
     <>
-      <header>
+      <header className={styles.header}>
         <div className={styles.topbar}>
           <div className={styles.container}>
             <Link href="/">
