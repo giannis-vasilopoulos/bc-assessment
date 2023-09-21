@@ -25,7 +25,24 @@ export const MainLayout = (props: MainLayoutProps) => {
         <MainMenu />
       </header>
       {props.children}
-      <footer />
+      <footer className={styles.footer}>
+        <div className={styles.container}>
+          <div>
+            <Logo className={styles.logo} />
+            <ul className={styles.companyDetails}>
+              <li>Better Collective A/S</li>
+              <li>Toldbodgade 12</li>
+              <li>Kopenhagen 1253</li>
+              <li>Denemarken</li>
+            </ul>
+          </div>
+          <div>
+            <p>Follow us on social media:</p>
+            <SocialMenu className={styles.footerSocial} />
+            <p>© 2022 bettingworld.com</p>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };

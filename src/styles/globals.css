@@ -4,6 +4,7 @@
   --red: #d93939;
   --white: #ffffff;
   --black: #000000;
+  --grayscale-dark: #222222;
 
   --foreground: var(--black);
   --background: var(--white);

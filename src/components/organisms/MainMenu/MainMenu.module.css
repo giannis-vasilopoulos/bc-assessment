@@ -3,7 +3,6 @@
     list-style-type: none;
     display: flex;
     justify-content: center;
-    position: relative;
     .item {
       padding: 0.5rem;
       margin-right: 1rem;
@@ -14,16 +13,26 @@
   }
 }
 
-.submenu {
-  position: absolute;
-  left: 0;
-  top: 40px;
-}
-
 .container {
   max-width: var(--max-width);
   margin: auto;
   display: flex;
   align-items: center;
+  position: relative;
   justify-content: space-between;
+}
+
+.submenu {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  list-style-type: none;
+  background-color: var(--grayscale-dark);
+  color: var(--white);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.submenu li {
+  padding: 0.5rem;
 }
