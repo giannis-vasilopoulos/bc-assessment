@@ -5,6 +5,7 @@
   --white: #ffffff;
   --black: #000000;
   --grayscale-dark: #222222;
+  --grayscale-light: #f7f7f7;
 
   --foreground: var(--black);
   --background: var(--white);
@@ -29,7 +30,7 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: var(--grayscale-light);
 }
 
 a {
