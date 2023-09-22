@@ -19,19 +19,22 @@
   margin: auto;
   display: flex;
   align-items: center;
-  position: relative;
+  overflow-x: scroll;
   justify-content: space-between;
 }
 
 .submenu {
   position: absolute;
   left: 0;
+  right: 0;
   top: 100%;
   list-style-type: none;
   background-color: var(--grayscale-dark);
   color: var(--white);
   width: 100%;
   display: flex;
+  max-width: var(--max-width);
+  margin: auto;
   justify-content: space-between;
 }
 .submenu li {

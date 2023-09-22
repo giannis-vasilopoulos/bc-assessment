@@ -1,5 +1,7 @@
 .header {
   background-color: var(--white);
+  overflow: visible;
+  position: relative;
 }
 .topbar {
   background-color: var(--red);
