@@ -12,15 +12,21 @@ export type MainMenuTypes = { data: MenuItemList[] };
 
 const SubMenu = ({ item }: { item: MenuItemList }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isDesktop, isMobile } = useScreenDetector();
 
   const handleMouseEnter = () => {
-    setIsOpen(true);
+    isDesktop && setIsOpen(true);
+  };
+
+  const toggleMobileSubMenu = () => {
+    isMobile && setIsOpen(!isOpen);
   };
 
   const handleMouseLeave = () => {
-    setTimeout(() => {
-      setIsOpen(false);
-    }, 500);
+    isDesktop &&
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 500);
   };
 
   return (
@@ -29,6 +35,7 @@ const SubMenu = ({ item }: { item: MenuItemList }) => {
         className={styles.item}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onClick={toggleMobileSubMenu}
       >
         {item.title} <Arrow />
         {isOpen && (

@@ -8,6 +8,7 @@ export const useScreenDetector = () => {
   };
 
   useEffect(() => {
+    handleWindowSizeChange();
     global.window.addEventListener("resize", handleWindowSizeChange);
 
     return () => {
