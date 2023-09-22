@@ -2,14 +2,14 @@ import { SearchInput } from "@/components/molecules/SearchInput";
 import styles from "./MainMenu.module.css";
 import Arrow from "@/assets/svg/arrow-down.svg";
 import Link from "next/link";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 export type MenuItem = { id: string; link: string; title: string };
 export type MenuItemList = MenuItem & { submenu?: MenuItem[] };
 
 export type MainMenuTypes = { data: MenuItemList[] };
 
-const SubMenu = (item: MenuItemList) => {
+const SubMenu = ({ item }: { item: MenuItemList }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleMouseEnter = () => {
@@ -52,7 +52,9 @@ export function MainMenu({ data }: MainMenuTypes) {
       <nav>
         <ul className={styles.list}>
           {data.map(i => {
-            if (i.submenu) return SubMenu(i);
+            if (i.submenu)
+              return <Fragment key={i.id}>{<SubMenu item={i} />}</Fragment>;
+
             return (
               <li key={i.id} className={styles.item}>
                 <Link href={i.link}>{i.title}</Link>

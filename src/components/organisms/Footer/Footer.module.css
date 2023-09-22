@@ -1,0 +1,53 @@
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 1.31rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+  border-bottom: 0.125rem solid #4a4a4a;
+}
+
+.footer {
+  background-color: var(--grayscale-dark);
+  color: var(--white);
+  font-size: 0.75rem;
+  padding: 2rem 1rem;
+}
+
+.footer ul {
+  list-style-type: none;
+}
+
+.companyDetails {
+  margin-top: 1rem;
+}
+
+.footerSocial {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.footerMenus {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-basis: 60%;
+}
+
+.footerMenus li {
+  padding: 0.5rem;
+}
+
+.bottomBar {
+  max-width: var(--max-width);
+  margin: auto;
+  justify-content: space-between;
+  display: flex;
+}
+.bottomBarLogos {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
