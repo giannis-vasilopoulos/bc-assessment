@@ -36,7 +36,20 @@
   max-width: var(--max-width);
   margin: auto;
   justify-content: space-between;
+  flex-direction: column;
+  padding: 10px;
+  gap: 0.5rem;
 }
+
 .submenu li {
   padding: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    overflow-x: auto;
+  }
+  .submenu {
+    flex-direction: row;
+  }
 }
