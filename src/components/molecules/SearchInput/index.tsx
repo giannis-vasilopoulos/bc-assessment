@@ -1,9 +1,10 @@
 import Search from "@/assets/svg/search.svg";
 import styles from "./SearchInput.module.css";
+import classNames from "classnames";
 
 export function SearchInput() {
   return (
-    <div className={`flexCenter ${styles.searchContainer}`}>
+    <div className={classNames("flexCenter", styles.searchContainer)}>
       <Search />
       <input
         type="text"

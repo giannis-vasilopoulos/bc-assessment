@@ -5,12 +5,13 @@ import { Fragment } from "react";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
 import { MainMenuTypes } from "./MainMenu.types";
 import SubMenu from "./SubMenu";
+import classNames from "classnames";
 
 export function MainMenu({ data }: MainMenuTypes) {
   const { isDesktop } = useScreenDetector();
 
   return (
-    <div className={`${styles.container} ${styles.mainMenu}`}>
+    <div className={classNames(styles.container, styles.mainMenu)}>
       <nav>
         <ul className={styles.list}>
           {data.map(i => {
