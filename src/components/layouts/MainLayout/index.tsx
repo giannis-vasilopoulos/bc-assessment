@@ -3,7 +3,11 @@ import styles from "./MainLayout.module.css";
 import Link from "next/link";
 import { SocialMenu } from "@/components/molecules";
 import Logo from "@/assets/svg/logo.svg";
-import { MainMenu, MenuItemList } from "@/components/organisms/MainMenu";
+import {
+  MainMenu,
+  MenuItem,
+  MenuItemList
+} from "@/components/organisms/MainMenu";
 import Image from "next/image";
 import cruks from "@/assets/images/cruks.png";
 import hands from "@/assets/images/24x7-hands.png";
@@ -14,10 +18,10 @@ import loket from "@/assets/images/loket-kansspel.png";
 type MainLayoutProps = {
   children: ReactNode;
   mainMenu: MenuItemList[];
+  footer: { id: string; items: MenuItem[] }[];
 };
 
 export const MainLayout = ({ mainMenu, footer, children }: MainLayoutProps) => {
-  console.log(mainMenu);
   return (
     <>
       <header className={styles.header}>
@@ -51,44 +55,17 @@ export const MainLayout = ({ mainMenu, footer, children }: MainLayoutProps) => {
           </div>
 
           <div className={styles.footerMenus}>
-            <ul>
-              <li>
-                <Link href="#">News</Link>
-              </li>
-              <li>
-                <Link href="#">Archive</Link>
-              </li>
-              <li>
-                <Link href="#">Authors</Link>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <Link href="#">Competitions</Link>
-              </li>
-              <li>
-                <Link href="#">Livescore</Link>
-              </li>
-              <li>
-                <Link href="#">Transfernews</Link>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <Link href="#">Contact</Link>
-              </li>
-              <li>
-                <Link href="#">Disclaimer</Link>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <Link href="#">Privacy Policy</Link>
-              </li>
-              <li>
-                <Link href="#">Cookie Policy</Link>
-              </li>
-            </ul>
+            {footer.map(column => {
+              return (
+                <ul key={column.id}>
+                  {column.items.map(item => (
+                    <li key={item.id}>
+                      <Link href={item.link}>{item.title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              );
+            })}
           </div>
         </div>
 

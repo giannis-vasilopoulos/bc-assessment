@@ -5,7 +5,7 @@ import { MenuItem, MenuItemList } from "@/components/organisms/MainMenu";
 
 type Data = {
   mainMenu: MenuItemList[];
-  footer: MenuItem[][];
+  footer: { id: string; items: MenuItem[] }[];
 };
 
 export default function handler(
