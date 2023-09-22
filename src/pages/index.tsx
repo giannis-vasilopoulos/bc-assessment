@@ -6,8 +6,7 @@ export async function getServerSideProps() {
     const serverData = await res.json();
     return { props: { serverData } };
   } catch (error) {
-    //TODO handle error
-    return { props: {} };
+    throw new Error("error on initial data");
   }
 }
 
