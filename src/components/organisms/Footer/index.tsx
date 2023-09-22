@@ -7,7 +7,7 @@ import Logo from "@/assets/svg/logo.svg";
 import agog from "@/assets/images/agog.png";
 import loket from "@/assets/images/loket-kansspel.png";
 import Link from "next/link";
-import { MenuItem } from "../MainMenu";
+import { MenuItem } from "../MainMenu/MainMenu.types";
 
 type FooterTypes = {
   data: { id: string; items: MenuItem[] }[];

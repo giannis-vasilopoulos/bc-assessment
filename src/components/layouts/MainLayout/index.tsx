@@ -3,13 +3,13 @@ import styles from "./MainLayout.module.css";
 import Link from "next/link";
 import { SocialMenu } from "@/components/molecules";
 import Logo from "@/assets/svg/logo.svg";
-import {
-  MainMenu,
-  MenuItem,
-  MenuItemList
-} from "@/components/organisms/MainMenu";
 
 import Footer from "@/components/organisms/Footer";
+import {
+  MenuItem,
+  MenuItemList
+} from "@/components/organisms/MainMenu/MainMenu.types";
+import { MainMenu } from "@/components/organisms/MainMenu";
 
 type MainLayoutProps = {
   children: ReactNode;
