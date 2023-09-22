@@ -38,7 +38,7 @@ const SubMenu = ({ item }: { item: MenuItemList }) => {
         router.events.off("routeChangeStart", () => setIsOpen(false));
       };
     }
-  }, [router]);
+  }, [router, isMobile]);
 
   return (
     <>
