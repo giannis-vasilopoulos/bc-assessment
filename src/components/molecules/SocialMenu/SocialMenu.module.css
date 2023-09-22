@@ -2,7 +2,13 @@
   display: flex;
   list-style-type: none;
   gap: 1rem;
+  justify-content: center;
 }
 .menuList li {
   list-style-type: none;
+}
+@media (min-width: 1024px) {
+  .menuList {
+    justify-content: flex-start;
+  }
 }

@@ -3,6 +3,7 @@ import styles from "./MainMenu.module.css";
 import Arrow from "@/assets/svg/arrow-down.svg";
 import Link from "next/link";
 import { Fragment, useState } from "react";
+import { useScreenDetector } from "@/hooks/useScreenDetector";
 
 export type MenuItem = { id: string; link: string; title: string };
 export type MenuItemList = MenuItem & { submenu?: MenuItem[] };
@@ -47,6 +48,8 @@ const SubMenu = ({ item }: { item: MenuItemList }) => {
 };
 
 export function MainMenu({ data }: MainMenuTypes) {
+  const { isDesktop } = useScreenDetector();
+
   return (
     <div className={`${styles.container} ${styles.mainMenu}`}>
       <nav>
@@ -63,7 +66,7 @@ export function MainMenu({ data }: MainMenuTypes) {
           })}
         </ul>
       </nav>
-      <SearchInput />
+      {isDesktop && <SearchInput />}
     </div>
   );
 }
