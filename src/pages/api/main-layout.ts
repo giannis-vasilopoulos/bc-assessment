@@ -1,11 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import mockData from "@/mocks/main-layout.json";
-
-type MenuItem = { id: string; link: string; title: string };
+import { MenuItem, MenuItemList } from "@/components/organisms/MainMenu";
 
 type Data = {
-  mainMenu: (MenuItem & { submenu?: MenuItem[] })[];
+  mainMenu: MenuItemList[];
   footer: MenuItem[][];
 };
 

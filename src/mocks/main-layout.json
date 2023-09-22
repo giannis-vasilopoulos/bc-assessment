@@ -12,17 +12,17 @@
       "submenu": [
         {
           "id": "submenu-1",
-          "title": "Syb Menu 1",
+          "title": "Comp Sub Menu 1",
           "link": "#"
         },
         {
           "id": "submenu-2",
-          "title": "Syb Menu 2",
+          "title": "Comp Sub Menu 2",
           "link": "#"
         },
         {
           "id": "submenu-3",
-          "title": "Syb Menu 3",
+          "title": "Comp Sub Menu 3",
           "link": "#"
         }
       ]
@@ -40,21 +40,21 @@
     {
       "id": "menu-5",
       "link": "/",
-      "title": "Bookmakers",
+      "title": "Teams",
       "submenu": [
         {
           "id": "submenu-1",
-          "title": "Syb Menu 1",
+          "title": "Teams Sub Menu 1",
           "link": "#"
         },
         {
           "id": "submenu-2",
-          "title": "Syb Menu 2",
+          "title": "Teams Sub Menu 2",
           "link": "#"
         },
         {
           "id": "submenu-3",
-          "title": "Syb Menu 3",
+          "title": "Teams Sub Menu 3",
           "link": "#"
         }
       ]

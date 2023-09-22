@@ -18,8 +18,10 @@ const defaultSeoValues = {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
+  const { serverData } = pageProps;
+
   return (
-    <MainLayout>
+    <MainLayout {...serverData}>
       <DefaultSeo {...defaultSeoValues} />
       <Component {...pageProps} />
     </MainLayout>

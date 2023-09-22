@@ -4,7 +4,12 @@ import Arrow from "@/assets/svg/arrow-down.svg";
 import Link from "next/link";
 import { useState } from "react";
 
-export function MainMenu() {
+export type MenuItem = { id: string; link: string; title: string };
+export type MenuItemList = MenuItem & { submenu?: MenuItem[] };
+
+export type MainMenuTypes = { data: MenuItemList[] };
+
+const SubMenu = (item: MenuItemList) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleMouseEnter = () => {
@@ -18,41 +23,42 @@ export function MainMenu() {
   };
 
   return (
+    <>
+      <li
+        className={styles.item}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {item.title} <Arrow />
+        {isOpen && (
+          <ul className={styles.submenu}>
+            {item.submenu?.map(i => {
+              return (
+                <li key={i.id}>
+                  <Link href={i.link}>{i.title}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </li>
+    </>
+  );
+};
+
+export function MainMenu({ data }: MainMenuTypes) {
+  return (
     <div className={`${styles.container} ${styles.mainMenu}`}>
       <nav>
         <ul className={styles.list}>
-          <li className={styles.item}>
-            <Link href="/">Livescore</Link>
-          </li>
-          <li
-            className={styles.item}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            Competities <Arrow />
-            {isOpen && (
-              <ul className={styles.submenu}>
-                <li>
-                  <Link href="/">sub menu 1</Link>
-                </li>
-                <li>
-                  <Link href="/">sub menu 2</Link>
-                </li>
-                <li>
-                  <Link href="/">sub menu 3</Link>
-                </li>
-              </ul>
-            )}
-          </li>
-          <li className={styles.item}>
-            <Link href="/">News</Link>
-          </li>
-          <li className={styles.item}>
-            <Link href="/">Bookmakers</Link>
-          </li>
-          <li className={styles.item}>
-            Teams <Arrow />
-          </li>
+          {data.map(i => {
+            if (i.submenu) return SubMenu(i);
+            return (
+              <li key={i.id} className={styles.item}>
+                <Link href={i.link}>{i.title}</Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
       <SearchInput />

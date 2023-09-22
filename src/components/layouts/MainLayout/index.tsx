@@ -3,7 +3,7 @@ import styles from "./MainLayout.module.css";
 import Link from "next/link";
 import { SocialMenu } from "@/components/molecules";
 import Logo from "@/assets/svg/logo.svg";
-import { MainMenu } from "@/components/organisms/MainMenu";
+import { MainMenu, MenuItemList } from "@/components/organisms/MainMenu";
 import Image from "next/image";
 import cruks from "@/assets/images/cruks.png";
 import hands from "@/assets/images/24x7-hands.png";
@@ -13,9 +13,11 @@ import loket from "@/assets/images/loket-kansspel.png";
 
 type MainLayoutProps = {
   children: ReactNode;
+  mainMenu: MenuItemList[];
 };
 
-export const MainLayout = (props: MainLayoutProps) => {
+export const MainLayout = ({ mainMenu, footer, children }: MainLayoutProps) => {
+  console.log(mainMenu);
   return (
     <>
       <header className={styles.header}>
@@ -28,9 +30,9 @@ export const MainLayout = (props: MainLayoutProps) => {
           </div>
         </div>
 
-        <MainMenu />
+        <MainMenu data={mainMenu} />
       </header>
-      {props.children}
+      {children}
       <footer className={styles.footer}>
         <div className={styles.container}>
           <div>
