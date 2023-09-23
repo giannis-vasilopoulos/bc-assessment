@@ -6,6 +6,7 @@
   --black: #000000;
   --green: #2e6643;
   --green-light: #c7ebd5;
+  --gray: #7e7e7e;
   --grayscale-dark: #222222;
   --grayscale-light: #f7f7f7;
   --yelow-dark: #f3cb0a;
@@ -37,12 +38,6 @@ body {
 }
 
 h1 {
-  font-size: 2.25rem;
-}
-h2 {
-  font-size: 1.75rem;
-}
-h3 {
   font-size: 1.5rem;
 }
 
@@ -54,4 +49,16 @@ a {
 .flexCenter {
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
 }

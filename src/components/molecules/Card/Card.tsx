@@ -1,5 +1,4 @@
-import Person from "@/assets/svg/person.svg";
-import { Pill } from "@/components/atoms";
+import { AuthorLabel, Pill } from "@/components/atoms";
 import styles from "./Card.module.css";
 import classNames from "classnames";
 
@@ -26,12 +25,7 @@ export function Card({ className, appearance, title }: CardTypes) {
           <a href="#">{title}</a>
         </h3>
       )}
-      <div className={styles.author}>
-        <Person />
-        <a href="#author">
-          <span>By James Doe</span>
-        </a>
-      </div>
+      <AuthorLabel link="#author" label="By James Doe" />
     </article>
   );
 }

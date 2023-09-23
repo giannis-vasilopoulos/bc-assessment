@@ -1,6 +1,7 @@
 import styles from "@/styles/Home.module.css";
 import News from "@/assets/svg/news.svg";
-import { Card } from "@/components/molecules";
+import { Card, CardMobile } from "@/components/molecules";
+import { useScreenDetector } from "@/hooks/useScreenDetector";
 
 type HomeProps = {
   articles: { id: number; title: string }[];
@@ -26,6 +27,8 @@ export const getStaticProps = async () => {
 
 export default function Home({ articles }: HomeProps) {
   const [first, second, third, ...rest] = articles;
+  const { isMobile } = useScreenDetector();
+
   return (
     <>
       <main className={styles.main} style={{ height: "150vh" }}>
@@ -40,14 +43,18 @@ export default function Home({ articles }: HomeProps) {
         </div>
 
         <div className={styles.featuredArticles}>
-          {[first, second, third].map((a, i) => (
-            <Card
-              key={a.id}
-              appearance={i === 0 ? "featured" : "secondary"}
-              className={styles.card}
-              title={a.title}
-            />
-          ))}
+          {[first, second, third].map((a, i) => {
+            if (i !== 0 && isMobile) return <CardMobile />;
+
+            return (
+              <Card
+                key={a.id}
+                appearance={i === 0 ? "featured" : "secondary"}
+                className={styles.card}
+                title={a.title}
+              />
+            );
+          })}
         </div>
       </main>
     </>

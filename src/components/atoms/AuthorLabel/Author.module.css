@@ -1,0 +1,10 @@
+.author {
+  font-size: 0.625rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: var(--white);
+  &.dark {
+    color: var(--gray);
+  }
+}
