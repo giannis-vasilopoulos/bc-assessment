@@ -1,0 +1,36 @@
+.main {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 1rem 0.5rem 0;
+}
+.breakingNews {
+  display: flex;
+  border-radius: 0.5rem;
+  border: 0.5rem solid rgba(217, 57, 57, 0.1);
+}
+.container {
+  background: var(--red);
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.newsList {
+  color: var(--white);
+  font-size: 0.75rem;
+  display: flex;
+  gap: 0rem;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding: 1rem 0 0;
+  }
+  .newsList {
+    gap: 1rem;
+    flex-direction: row;
+    font-size: 0.875rem;
+  }
+}

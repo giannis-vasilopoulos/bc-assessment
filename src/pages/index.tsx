@@ -1,4 +1,5 @@
 import styles from "@/styles/Home.module.css";
+import News from "@/assets/svg/news.svg";
 
 export async function getServerSideProps() {
   try {
@@ -13,9 +14,15 @@ export async function getServerSideProps() {
 export default function Home() {
   return (
     <>
-      <main className={styles.main}>
-        <div className={styles.description} style={{ height: "150vh" }}>
-          <p>Get started by editing&nbsp;</p>
+      <main className={styles.main} style={{ height: "150vh" }}>
+        <div className={styles.breakingNews}>
+          <div className={styles.container}>
+            <News />
+            <div className={styles.newsList}>
+              <p>Breaking News</p>
+              <p>OMG! Donnaruma to potentially miss the WC</p>
+            </div>
+          </div>
         </div>
       </main>
     </>
