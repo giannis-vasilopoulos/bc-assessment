@@ -40,6 +40,10 @@
   }
 }
 
+.sliderTitle {
+  margin-bottom: 1rem;
+}
+
 .slideArticle {
   display: flex;
   flex-direction: column;

@@ -29,7 +29,6 @@ export const getStaticProps = async () => {
 
 export default function Home({ articles }: HomeProps) {
   const [first, second, third, ...restArticles] = articles;
-  console.log(restArticles);
   const { isMobile } = useScreenDetector();
 
   return (
@@ -62,8 +61,22 @@ export default function Home({ articles }: HomeProps) {
         </div>
 
         <section>
-          <h3>Populair</h3>
-          <Swiper spaceBetween={16} slidesPerView={4}>
+          <h2 className={styles.sliderTitle}>Populair</h2>
+          <Swiper
+            spaceBetween={16}
+            slidesPerView={1}
+            breakpoints={{
+              320: {
+                slidesPerView: 1.3
+              },
+              768: {
+                slidesPerView: 3
+              },
+              1024: {
+                slidesPerView: 4
+              }
+            }}
+          >
             {restArticles.map((a, i) => {
               return (
                 <SwiperSlide key={a.id}>
