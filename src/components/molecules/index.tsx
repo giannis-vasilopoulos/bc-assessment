@@ -1,2 +1,2 @@
-export * from "./SocialMenu";
-export * from "./SearchInput";
+export * from "./SocialMenu/SocialMenu";
+export * from "./SearchInput/SearchInput";

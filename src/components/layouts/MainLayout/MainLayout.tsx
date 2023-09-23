@@ -3,12 +3,11 @@ import styles from "./MainLayout.module.css";
 import Link from "next/link";
 import { SocialMenu, SearchInput } from "@/components/molecules";
 import Logo from "@/assets/svg/logo.svg";
-import Footer from "@/components/organisms/Footer";
+import { Footer, MainMenu } from "@/components/organisms";
 import {
   MenuItem,
   MenuItemList
 } from "@/components/organisms/MainMenu/MainMenu.types";
-import { MainMenu } from "@/components/organisms/MainMenu";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
 import Burger from "@/assets/svg/burger.svg";
 
