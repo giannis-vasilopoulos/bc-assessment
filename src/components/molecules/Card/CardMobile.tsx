@@ -18,7 +18,7 @@ export function CardMobile({ title }: CardMobileTypes) {
         <h3>
           <a href="#">{title}</a>
         </h3>
-        <div>
+        <figure>
           <Image
             src="/assets/article-image.jpeg"
             alt="article image"
@@ -30,7 +30,7 @@ export function CardMobile({ title }: CardMobileTypes) {
               display: "block"
             }}
           />
-        </div>
+        </figure>
       </div>
     </article>
   );
