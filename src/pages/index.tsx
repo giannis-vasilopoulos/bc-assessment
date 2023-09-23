@@ -44,7 +44,8 @@ export default function Home({ articles }: HomeProps) {
 
         <div className={styles.featuredArticles}>
           {[first, second, third].map((a, i) => {
-            if (i !== 0 && isMobile) return <CardMobile />;
+            if (i !== 0 && isMobile)
+              return <CardMobile key={a.id} title={a.title} />;
 
             return (
               <Card

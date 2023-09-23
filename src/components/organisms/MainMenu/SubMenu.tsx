@@ -9,14 +9,14 @@ import { MenuItemList } from "./MainMenu.types";
 const SubMenu = ({ item }: { item: MenuItemList }) => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
-  const { isDesktop, isMobile } = useScreenDetector();
+  const { isDesktop } = useScreenDetector();
 
   const handleMouseEnter = () => {
     isDesktop && setIsOpen(true);
   };
 
   const toggleMobileSubMenu = () => {
-    isMobile && setIsOpen(!isOpen);
+    !isDesktop && setIsOpen(!isOpen);
   };
 
   const handleMouseLeave = () => {
@@ -27,14 +27,14 @@ const SubMenu = ({ item }: { item: MenuItemList }) => {
   };
 
   useEffect(() => {
-    if (isMobile) {
+    if (!isDesktop) {
       router.events.on("routeChangeStart", () => setIsOpen(false));
 
       return () => {
         router.events.off("routeChangeStart", () => setIsOpen(false));
       };
     }
-  }, [router, isMobile]);
+  }, [router, isDesktop]);
 
   return (
     <>

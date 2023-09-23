@@ -8,3 +8,6 @@
     color: var(--gray);
   }
 }
+.dark svg {
+  stroke: var(--gray);
+}
