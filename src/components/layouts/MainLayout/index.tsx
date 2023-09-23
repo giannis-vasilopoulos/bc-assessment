@@ -1,7 +1,7 @@
 import { ReactNode, useState } from "react";
 import styles from "./MainLayout.module.css";
 import Link from "next/link";
-import { SocialMenu } from "@/components/molecules";
+import { SocialMenu, SearchInput } from "@/components/molecules";
 import Logo from "@/assets/svg/logo.svg";
 import Footer from "@/components/organisms/Footer";
 import {
@@ -11,7 +11,6 @@ import {
 import { MainMenu } from "@/components/organisms/MainMenu";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
 import Burger from "@/assets/svg/burger.svg";
-import { SearchInput } from "@/components/molecules/SearchInput";
 
 type MainLayoutProps = {
   children: ReactNode;

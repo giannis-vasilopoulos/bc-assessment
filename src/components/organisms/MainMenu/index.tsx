@@ -1,4 +1,4 @@
-import { SearchInput } from "@/components/molecules/SearchInput";
+import { SearchInput } from "@/components/molecules";
 import styles from "./MainMenu.module.css";
 import Link from "next/link";
 import { Fragment } from "react";
