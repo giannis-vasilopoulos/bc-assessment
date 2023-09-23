@@ -1,11 +1,24 @@
-import styles from "./styles.module.css";
+import classNames from "classnames";
+import styles from "./Pill.module.css";
 
 type PillProps = {
-  appearance: "primary" | "secondary" | "ternary";
+  appearance?: "primary" | "secondary" | "alt";
+  text: string;
+  className?: string;
 };
 
-export const Pill = (props: PillProps) => {
-  return <div className={styles.container}>Generic</div>;
+export const Pill = ({
+  appearance = "primary",
+  text,
+  className
+}: PillProps) => {
+  return (
+    <div
+      className={classNames(styles.container, styles[appearance], className)}
+    >
+      {text}
+    </div>
+  );
 };
 
 export default Pill;
