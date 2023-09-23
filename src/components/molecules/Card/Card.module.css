@@ -1,0 +1,23 @@
+.card {
+  color: var(--white);
+  border-radius: 1rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: auto 2/1;
+}
+
+.author {
+  font-size: 0.625rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.pillStyles {
+  margin-bottom: auto;
+}

@@ -44,7 +44,8 @@ const SubMenu = ({ item }: { item: MenuItemList }) => {
         onMouseLeave={handleMouseLeave}
         onClick={toggleMobileSubMenu}
       >
-        {item.title} <Arrow />
+        {item.title}&nbsp;
+        <Arrow />
         {isOpen && (
           <ul className={styles.submenu}>
             {item.submenu?.map(i => {

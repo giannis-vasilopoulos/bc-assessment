@@ -1,19 +1,31 @@
 import styles from "@/styles/Home.module.css";
 import News from "@/assets/svg/news.svg";
-import Person from "@/assets/svg/person.svg";
-import { Pill } from "@/components/atoms";
+import { Card } from "@/components/molecules";
 
-export async function getServerSideProps() {
+type HomeProps = {
+  articles: { id: number; title: string }[];
+};
+
+export const getStaticProps = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/main-layout");
-    const serverData = await res.json();
-    return { props: { serverData } };
+    const [mainLayout, articles] = await Promise.all([
+      fetch("http://localhost:3000/api/main-layout"),
+      fetch("https://api.slingacademy.com/v1/sample-data/blog-posts")
+    ]);
+    return {
+      props: {
+        serverData: await mainLayout.json(),
+        articles: (await articles.json()).blogs
+      },
+      revalidate: 60
+    };
   } catch (error) {
     throw new Error("error on initial data");
   }
-}
+};
 
-export default function Home() {
+export default function Home({ articles }: HomeProps) {
+  const [first, second, third, ...rest] = articles;
   return (
     <>
       <main className={styles.main} style={{ height: "150vh" }}>
@@ -28,39 +40,14 @@ export default function Home() {
         </div>
 
         <div className={styles.featuredArticles}>
-          <article
-            className={styles.card}
-            style={{ backgroundImage: `url(/assets/article-image.jpeg)` }}
-          >
-            <Pill text="Generic" className={styles.pillStyles} />
-            <h1>The article headline goes here</h1>
-            <div className={styles.author}>
-              <Person />
-              <span>By James Doe</span>
-            </div>
-          </article>
-          <article
-            className={styles.card}
-            style={{ backgroundImage: `url(/assets/article-image.jpeg)` }}
-          >
-            <Pill text="Generic" className={styles.pillStyles} />
-            <h1>The article headline goes here</h1>
-            <div className={styles.author}>
-              <Person />
-              <span>By James Doe</span>
-            </div>
-          </article>
-          <article
-            className={styles.card}
-            style={{ backgroundImage: `url(/assets/article-image.jpeg)` }}
-          >
-            <Pill text="Generic" className={styles.pillStyles} />
-            <h1>The article headline goes here</h1>
-            <div className={styles.author}>
-              <Person />
-              <span>By James Doe</span>
-            </div>
-          </article>
+          {[first, second, third].map((a, i) => (
+            <Card
+              key={a.id}
+              appearance={i === 0 ? "featured" : "secondary"}
+              className={styles.card}
+              title={a.title}
+            />
+          ))}
         </div>
       </main>
     </>
