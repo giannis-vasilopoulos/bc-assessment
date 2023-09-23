@@ -24,6 +24,26 @@
   flex-direction: column;
 }
 
+.featuredArticles {
+  padding: 2rem 0;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 2fr 1fr;
+  grid-auto-rows: minmax(12rem, auto);
+  .card:first-of-type {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+}
+
+.card {
+  color: var(--white);
+  border-radius: 1rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
+}
+
 @media (min-width: 1024px) {
   .main {
     padding: 1rem 0 0;

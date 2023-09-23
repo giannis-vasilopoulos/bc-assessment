@@ -4,8 +4,11 @@
   --red: #d93939;
   --white: #ffffff;
   --black: #000000;
+  --green: #2e6643;
+  --green-light: #c7ebd5;
   --grayscale-dark: #222222;
   --grayscale-light: #f7f7f7;
+  --yelow-dark: #f3cb0a;
 
   --foreground: var(--black);
   --background: var(--white);
