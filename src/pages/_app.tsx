@@ -2,6 +2,7 @@ import { MainLayout } from "@/components/layouts";
 import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
+import "swiper/css";
 
 const defaultSeoValues = {
   title: "All about Bet",

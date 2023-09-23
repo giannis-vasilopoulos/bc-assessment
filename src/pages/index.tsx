@@ -2,6 +2,8 @@ import styles from "@/styles/Home.module.css";
 import News from "@/assets/svg/news.svg";
 import { Card, CardMobile } from "@/components/molecules";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { AuthorLabel, Pill } from "@/components/atoms";
 
 type HomeProps = {
   articles: { id: number; title: string }[];
@@ -26,7 +28,8 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ articles }: HomeProps) {
-  const [first, second, third, ...rest] = articles;
+  const [first, second, third, ...restArticles] = articles;
+  console.log(restArticles);
   const { isMobile } = useScreenDetector();
 
   return (
@@ -57,6 +60,33 @@ export default function Home({ articles }: HomeProps) {
             );
           })}
         </div>
+
+        <section>
+          <h3>Populair</h3>
+          <Swiper spaceBetween={16} slidesPerView={4}>
+            {restArticles.map((a, i) => {
+              return (
+                <SwiperSlide key={a.id}>
+                  <article className={styles.slideArticle}>
+                    <div
+                      className={styles.slideImage}
+                      style={{
+                        backgroundImage: `url(/assets/article-image.jpeg)`
+                      }}
+                    >
+                      <Pill
+                        text={i === 0 ? "Breaking" : "Generic"}
+                        appearance={i === 0 ? "secondary" : "primary"}
+                      />
+                    </div>
+                    <h4>{a.title}</h4>
+                    <AuthorLabel link="#author" label="By James Doe" dark />
+                  </article>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </section>
       </main>
     </>
   );
