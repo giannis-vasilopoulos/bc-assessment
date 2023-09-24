@@ -64,7 +64,7 @@ export default function Home({ articles }: HomeProps) {
           <h2 className={styles.sliderTitle}>Populair</h2>
           <Swiper
             spaceBetween={16}
-            onReachEnd={swiper => console.log("end")}
+            onReachEnd={swiper => console.log(swiper)}
             slidesPerView={1}
             breakpoints={{
               320: {
