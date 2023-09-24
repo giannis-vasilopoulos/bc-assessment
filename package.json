@@ -28,12 +28,6 @@
     "trailingComma": "none",
     "arrowParens": "avoid"
   },
-  "lint-staged": {
-    "src/**/*.{tsx,ts}": [
-      "yarn lint",
-      "prettier --write"
-    ]
-  },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
