@@ -2,9 +2,12 @@ import styles from "@/styles/Home.module.css";
 import News from "@/assets/svg/news.svg";
 import { Card, CardMobile } from "@/components/molecules";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { AuthorLabel, Pill } from "@/components/atoms";
 import classNames from "classnames";
+import ArrowRight from "@/assets/svg/arrow-right.svg";
+import ArrowLeft from "@/assets/svg/arrow-left.svg";
+import { useCallback, useState } from "react";
 
 type HomeProps = {
   articles: { id: number; title: string }[];
@@ -24,13 +27,23 @@ export const getStaticProps = async () => {
       revalidate: 60
     };
   } catch (error) {
-    throw new Error("error on initial data");
+    console.log(error);
+    // throw new Error("error on initial data");
   }
 };
 
 export default function Home({ articles }: HomeProps) {
   const [first, second, third, ...restArticles] = articles;
+  const [swiperRef, setSwiperRef] = useState<SwiperClass>();
   const { isMobile } = useScreenDetector();
+
+  const handlePrev = useCallback(() => {
+    swiperRef?.slidePrev();
+  }, [swiperRef]);
+
+  const handleNext = useCallback(() => {
+    swiperRef?.slideNext();
+  }, [swiperRef]);
 
   return (
     <>
@@ -66,20 +79,29 @@ export default function Home({ articles }: HomeProps) {
         </div>
 
         <section>
-          <h2 className={styles.sliderTitle}>Populair</h2>
+          <div className={styles.sliderTitle}>
+            <h2>Populair</h2>
+            <div className={styles.arrowSection} onClick={handlePrev}>
+              <ArrowLeft />
+            </div>
+            <div className={styles.arrowSection} onClick={handleNext}>
+              <ArrowRight />
+            </div>
+          </div>
           <Swiper
             spaceBetween={16}
-            onReachEnd={swiper => console.log(swiper)}
             slidesPerView={1}
+            onSwiper={setSwiperRef}
+            style={isMobile ? { marginRight: "-0.5rem" } : undefined}
             breakpoints={{
               320: {
                 slidesPerView: 1.3
               },
               768: {
-                slidesPerView: 3
+                slidesPerView: 3.3
               },
               1024: {
-                slidesPerView: 4
+                slidesPerView: 4.3
               }
             }}
           >
