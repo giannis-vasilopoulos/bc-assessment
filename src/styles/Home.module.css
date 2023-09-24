@@ -56,6 +56,18 @@
     background-size: cover;
   }
 }
+.slotAdd {
+  display: block;
+  text-align: center;
+}
+
+.slot1 {
+  padding-bottom: 1rem;
+}
+
+.mobileSlot1 {
+  padding: 1rem 0;
+}
 
 @media (min-width: 1024px) {
   .newsList {

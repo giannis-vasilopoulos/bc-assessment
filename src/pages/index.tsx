@@ -4,6 +4,7 @@ import { Card, CardMobile } from "@/components/molecules";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { AuthorLabel, Pill } from "@/components/atoms";
+import classNames from "classnames";
 
 type HomeProps = {
   articles: { id: number; title: string }[];
@@ -34,6 +35,7 @@ export default function Home({ articles }: HomeProps) {
   return (
     <>
       <main className={styles.main} style={{ height: "150vh" }}>
+        <adslot1 className={classNames(styles.slotAdd, styles.slot1)}></adslot1>
         <div className={styles.breakingNews}>
           <div className={styles.container}>
             <News />
@@ -101,6 +103,10 @@ export default function Home({ articles }: HomeProps) {
             })}
           </Swiper>
         </section>
+        <mobileAdslot1
+          className={classNames(styles.slotAdd, styles.mobileSlot1)}
+          style={{ padding: "1rem 0" }}
+        ></mobileAdslot1>
       </main>
     </>
   );
