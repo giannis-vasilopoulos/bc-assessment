@@ -63,10 +63,12 @@
 
 .slot1 {
   padding-bottom: 1rem;
+  display: none;
 }
 
 .mobileSlot1 {
   padding: 1rem 0;
+  display: block;
 }
 
 @media (min-width: 1024px) {
@@ -79,5 +81,11 @@
     grid-auto-rows: minmax(12rem, auto);
     grid-template-columns: 2fr 1fr;
     padding: 2rem 0;
+  }
+  .slot1 {
+    display: block;
+  }
+  .mobileSlot1 {
+    display: none;
   }
 }
