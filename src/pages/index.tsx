@@ -2,12 +2,12 @@ import styles from "@/styles/Home.module.css";
 import News from "@/assets/svg/news.svg";
 import { Card, CardMobile } from "@/components/molecules";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
-import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
-import { AuthorLabel, Pill } from "@/components/atoms";
+import { SwiperClass } from "swiper/react";
 import classNames from "classnames";
 import ArrowRight from "@/assets/svg/arrow-right.svg";
 import ArrowLeft from "@/assets/svg/arrow-left.svg";
 import { useCallback, useState } from "react";
+import { Slider } from "@/components/organisms";
 
 type HomeProps = {
   articles: { id: number; title: string }[];
@@ -88,46 +88,13 @@ export default function Home({ articles }: HomeProps) {
               <ArrowRight />
             </div>
           </div>
-          <Swiper
-            spaceBetween={16}
-            slidesPerView={1}
-            onSwiper={setSwiperRef}
-            style={isMobile ? { marginRight: "-0.5rem" } : undefined}
-            breakpoints={{
-              320: {
-                slidesPerView: 1.3
-              },
-              768: {
-                slidesPerView: 3.3
-              },
-              1024: {
-                slidesPerView: 4.3
-              }
-            }}
-          >
-            {restArticles.map((a, i) => {
-              return (
-                <SwiperSlide key={a.id}>
-                  <article className={styles.slideArticle}>
-                    <div
-                      className={styles.slideImage}
-                      style={{
-                        backgroundImage: `url(/assets/article-image.jpeg)`
-                      }}
-                    >
-                      <Pill
-                        text={i === 0 ? "Breaking" : "Generic"}
-                        appearance={i === 0 ? "secondary" : "primary"}
-                      />
-                    </div>
-                    <h4>{a.title}</h4>
-                    <AuthorLabel link="#author" label="By James Doe" dark />
-                  </article>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
+          <Slider
+            handleSwiperInstance={setSwiperRef}
+            slides={restArticles}
+            sliderStyles={isMobile ? { marginRight: "-0.5rem" } : undefined}
+          />
         </section>
+
         <mobileAdslot1
           className={classNames(styles.slotAdd, styles.mobileSlot1)}
           suppressHydrationWarning
