@@ -42,6 +42,24 @@
 
 .sliderTitle {
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.arrowSection {
+  padding: 0.5rem 0.625rem;
+  background-color: var(--white);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.arrowSection:first-of-type {
+  margin-left: auto;
+}
+
+.arrowSection svg {
+  display: block;
 }
 
 .slideArticle {
