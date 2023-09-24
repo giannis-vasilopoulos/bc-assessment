@@ -23,7 +23,10 @@ const nextConfig = {
 
     return config;
   },
-  reactStrictMode: true
+  reactStrictMode: true,
+  eslint: {
+    dirs: ["src"]
+  }
 };
 
 module.exports = nextConfig;
