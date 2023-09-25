@@ -26,6 +26,14 @@ const nextConfig = {
   reactStrictMode: true,
   eslint: {
     dirs: ["src"]
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api.slingacademy.com"
+      }
+    ]
   }
 };
 

@@ -1,12 +1,14 @@
 import { AuthorLabel, Pill } from "@/components/atoms";
 import styles from "./Card.module.css";
 import Image from "next/image";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 type CardMobileTypes = {
   title: string;
+  image: string | StaticImport;
 };
 
-export function CardMobile({ title }: CardMobileTypes) {
+export function CardMobile({ title, image }: CardMobileTypes) {
   return (
     <article className={styles.cardMobile}>
       <div className={styles.topbar}>
@@ -20,7 +22,7 @@ export function CardMobile({ title }: CardMobileTypes) {
         </h3>
         <figure>
           <Image
-            src="/assets/article-image.jpeg"
+            src={image}
             alt="article image"
             width={75}
             height={50}

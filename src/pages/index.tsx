@@ -9,7 +9,7 @@ import { useCallback, useState } from "react";
 import { Slider } from "@/components/organisms";
 
 type HomeProps = {
-  articles: { id: number; title: string }[];
+  articles: { id: number; title: string; photo_url: string }[];
 };
 
 export const getStaticProps = async () => {
@@ -68,7 +68,9 @@ export default function Home({ articles }: HomeProps) {
         <div className={styles.featuredArticles}>
           {[first, second, third].map((a, i) => {
             if (i !== 0 && isMobile)
-              return <CardMobile key={a.id} title={a.title} />;
+              return (
+                <CardMobile key={a.id} title={a.title} image={a.photo_url} />
+              );
 
             return (
               <Card
@@ -76,6 +78,7 @@ export default function Home({ articles }: HomeProps) {
                 appearance={i === 0 ? "featured" : "secondary"}
                 className={styles.card}
                 title={a.title}
+                image={a.photo_url}
               />
             );
           })}

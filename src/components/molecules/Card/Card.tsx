@@ -6,13 +6,14 @@ type CardTypes = {
   className: string;
   title: string;
   appearance: "featured" | "secondary";
+  image: string;
 };
 
-export function Card({ className, appearance, title }: CardTypes) {
+export function Card({ className, appearance, title, image }: CardTypes) {
   return (
     <article
       className={classNames(styles.card, className)}
-      style={{ backgroundImage: `url(/assets/article-image.jpeg)` }}
+      style={{ backgroundImage: `url(${image})` }}
     >
       <Pill text="Generic" className={styles.pillStyles} />
       {appearance === "featured" && (
