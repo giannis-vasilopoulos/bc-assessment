@@ -14,25 +14,21 @@ type HomeProps = {
 
 export const getStaticProps = async () => {
   try {
-    const [mainLayout, articles] = await Promise.all([
-      fetch("http://localhost:3000/api/main-layout"),
-      fetch("https://api.slingacademy.com/v1/sample-data/blog-posts")
-    ]);
+    const res = await fetch(
+      "https://api.slingacademy.com/v1/sample-data/blog-posts"
+    );
+    const articles = await res.json();
     return {
       props: {
-        serverData: await mainLayout.json(),
-        articles: (await articles.json()).blogs
+        articles: articles.blogs
       },
       revalidate: 60
     };
   } catch (error) {
-    console.log(error);
-    // throw new Error("error on initial data");
+    throw new Error("error on initial data");
   }
 };
 
-//TODO move localhost api to client side ?
-// Enhanche api setup with handler
 // graphql task
 
 export default function Home({ articles }: HomeProps) {

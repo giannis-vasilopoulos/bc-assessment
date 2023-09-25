@@ -3,6 +3,7 @@ import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 import "swiper/css";
+import useGlobalData from "@/hooks/useGlobalData";
 
 const defaultSeoValues = {
   title: "All about Bet",
@@ -19,8 +20,7 @@ const defaultSeoValues = {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { serverData } = pageProps;
-
+  const { serverData } = useGlobalData();
   return (
     <MainLayout {...serverData}>
       <DefaultSeo {...defaultSeoValues} />

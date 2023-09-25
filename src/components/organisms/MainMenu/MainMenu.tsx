@@ -7,7 +7,7 @@ import { MainMenuTypes } from "./MainMenu.types";
 import SubMenu from "./SubMenu";
 import classNames from "classnames";
 
-export function MainMenu({ data }: MainMenuTypes) {
+export function MainMenu({ data = [] }: MainMenuTypes) {
   const { isDesktop } = useScreenDetector();
 
   return (

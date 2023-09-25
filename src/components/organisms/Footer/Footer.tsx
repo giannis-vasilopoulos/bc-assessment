@@ -13,7 +13,7 @@ type FooterTypes = {
   data: { id: string; items: MenuItem[] }[];
 };
 
-export function Footer({ data }: FooterTypes) {
+export function Footer({ data = [] }: FooterTypes) {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
