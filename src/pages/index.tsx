@@ -1,6 +1,6 @@
 import styles from "@/styles/Home.module.css";
 import News from "@/assets/svg/news.svg";
-import { Card, CardList, CardMobile } from "@/components/molecules";
+import { Card, ListCard, CardMobile } from "@/components/molecules";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
 import { SwiperClass } from "swiper/react";
 import ArrowRight from "@/assets/svg/arrow-right.svg";
@@ -144,7 +144,7 @@ export default function Home({ articles, listArticles }: HomeProps) {
             <div className={styles.listArticlesContainer}>
               {featuredArticles.data.map(a => {
                 return (
-                  <CardList
+                  <ListCard
                     key={a.id}
                     title={a.title}
                     image="/assets/article-image.jpeg"

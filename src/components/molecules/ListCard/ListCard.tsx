@@ -1,5 +1,5 @@
 import { AuthorLabel, Pill } from "@/components/atoms";
-import styles from "./CardList.module.css";
+import styles from "./ListCard.module.css";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
@@ -7,10 +7,9 @@ import { useScreenDetector } from "@/hooks/useScreenDetector";
 type CardListTypes = {
   title: string;
   image: string | StaticImport;
-  imageLeft?: boolean;
 };
 
-export function CardList({ title, image }: CardListTypes) {
+export function ListCard({ title, image }: CardListTypes) {
   const { isDesktop } = useScreenDetector();
   return (
     <article className={styles.cardList}>

@@ -19,9 +19,4 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  &.imageLeft {
-    justify-content: flex-end;
-    flex-direction: row-reverse;
-    gap: 1rem;
-  }
 }
