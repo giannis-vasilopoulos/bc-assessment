@@ -1,6 +1,6 @@
 import styles from "@/styles/Home.module.css";
 import News from "@/assets/svg/news.svg";
-import { Card, CardMobile } from "@/components/molecules";
+import { Card, CardList, CardMobile } from "@/components/molecules";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
 import { SwiperClass } from "swiper/react";
 import ArrowRight from "@/assets/svg/arrow-right.svg";
@@ -8,7 +8,6 @@ import ArrowLeft from "@/assets/svg/arrow-left.svg";
 import { useCallback, useState } from "react";
 import { Slider } from "@/components/organisms";
 import graphqlClient from "@/utils/graphqlClient";
-import { CardList } from "@/components/molecules/CardList/CardList";
 
 type ListArticle = { id: number; title: string; user: { name: string } };
 type HomeProps = {
