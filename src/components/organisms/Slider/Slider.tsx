@@ -6,7 +6,7 @@ import styles from "./Slider.module.css";
 type SliderProps = {
   sliderStyles?: CSSProperties;
   handleSwiperInstance: (swiper: SwiperClass) => void;
-  slides: { id: number; title: string }[];
+  slides: { id: number; title: string; photo_url: string }[];
 };
 
 export function Slider({
@@ -39,7 +39,7 @@ export function Slider({
               <div
                 className={styles.slideImage}
                 style={{
-                  backgroundImage: `url(/assets/article-image.jpeg)`
+                  backgroundImage: `url(${a.photo_url})`
                 }}
               >
                 <Pill
