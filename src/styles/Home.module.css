@@ -89,6 +89,23 @@
   display: block;
 }
 
+.listArticles {
+  background-color: var(--white);
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+}
+
+.homeListArticles {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 @media (min-width: 1024px) {
   .newsList {
     gap: 1rem;

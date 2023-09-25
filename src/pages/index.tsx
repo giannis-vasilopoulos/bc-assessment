@@ -7,20 +7,61 @@ import ArrowRight from "@/assets/svg/arrow-right.svg";
 import ArrowLeft from "@/assets/svg/arrow-left.svg";
 import { useCallback, useState } from "react";
 import { Slider } from "@/components/organisms";
+import graphqlClient from "@/utils/graphqlClient";
+import { CardList } from "@/components/molecules/CardList/CardList";
 
+type ListArticle = { id: number; title: string; user: { name: string } };
 type HomeProps = {
   articles: { id: number; title: string; photo_url: string }[];
+  listArticles: {
+    featuredArticles: { data: ListArticle[] };
+    sliderArticles: { data: ListArticle[] };
+    restArticles: { data: ListArticle[] };
+  };
 };
 
 export const getStaticProps = async () => {
+  const query = `
+      query {
+        featuredArticles: posts(options: { paginate: { limit: 5, page: 1 } }) {
+          data {
+            id
+            title
+            user {
+              name
+            }
+          }
+        }
+        sliderArticles: posts(options: { paginate: { limit: 5, page: 2 } }) {
+          data {
+            id
+            title
+            user {
+              name
+            }
+          }
+        }
+        restArticles: posts(options: { paginate: { limit: 10, page: 3 } }) {
+          data {
+            id
+            title
+            user {
+              name
+            }
+          }
+        }
+      }
+    `;
+
   try {
-    const res = await fetch(
-      "https://api.slingacademy.com/v1/sample-data/blog-posts"
-    );
-    const articles = await res.json();
+    const [mainLayout, articles] = await Promise.all([
+      graphqlClient(query),
+      fetch("https://api.slingacademy.com/v1/sample-data/blog-posts")
+    ]);
     return {
       props: {
-        articles: articles.blogs
+        articles: (await articles.json()).blogs,
+        listArticles: (await mainLayout.json()).data
       },
       revalidate: 60
     };
@@ -31,8 +72,9 @@ export const getStaticProps = async () => {
 
 // graphql task
 
-export default function Home({ articles }: HomeProps) {
+export default function Home({ articles, listArticles }: HomeProps) {
   const [first, second, third, ...restArticles] = articles;
+  const { featuredArticles } = listArticles;
   const [swiperRef, setSwiperRef] = useState<SwiperClass>();
   const { isMobile } = useScreenDetector();
 
@@ -46,7 +88,7 @@ export default function Home({ articles }: HomeProps) {
 
   return (
     <>
-      <main className={styles.main} style={{ height: "150vh" }}>
+      <main className={styles.main}>
         {/* <adslot1
           className={classNames(styles.slotAdd, styles.slot1)}
           suppressHydrationWarning
@@ -95,6 +137,21 @@ export default function Home({ articles }: HomeProps) {
             slides={restArticles}
             sliderStyles={isMobile ? { marginRight: "-0.5rem" } : undefined}
           />
+        </section>
+
+        <section className={styles.listArticles}>
+          <h2>Vandaag 11 April 2022</h2>
+          <div className={styles.homeListArticles}>
+            {featuredArticles.data.map(a => {
+              return (
+                <CardList
+                  key={a.id}
+                  title={a.title}
+                  image="/assets/article-image.jpeg"
+                />
+              );
+            })}
+          </div>
         </section>
 
         {/* <mobileAdslot1

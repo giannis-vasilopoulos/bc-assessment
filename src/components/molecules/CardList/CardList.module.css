@@ -1,0 +1,27 @@
+.cardList {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+
+.rightSide {
+  width: 100%;
+}
+
+.titleSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &.imageLeft {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    gap: 1rem;
+  }
+}
