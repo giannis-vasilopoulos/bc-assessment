@@ -22,7 +22,7 @@ export default function Document() {
         />
         <Script
           src="https://cdn.jsdelivr.net/gh/jsoukas/tests/3rdplay.js"
-          strategy="lazyOnload"
+          strategy="worker"
         />
       </Head>
       <body>

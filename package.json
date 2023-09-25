@@ -30,6 +30,7 @@
     "arrowParens": "avoid"
   },
   "devDependencies": {
+    "@builder.io/partytown": "^0.8.1",
     "@svgr/webpack": "^8.1.0",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",

@@ -27,6 +27,9 @@ const nextConfig = {
   eslint: {
     dirs: ["src"]
   },
+  experimental: {
+    nextScriptWorkers: true
+  },
   images: {
     remotePatterns: [
       {
