@@ -92,15 +92,20 @@
 .listArticles {
   background-color: var(--white);
   padding: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
   gap: 1rem;
+  flex-basis: 70%;
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
 }
-
-.homeListArticles {
+.articlesWithSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.listArticlesContainer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -122,5 +127,8 @@
   }
   .mobileSlot1 {
     display: none;
+  }
+  .articlesWithSidebar {
+    flex-direction: row;
   }
 }

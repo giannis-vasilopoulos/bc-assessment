@@ -139,19 +139,24 @@ export default function Home({ articles, listArticles }: HomeProps) {
           />
         </section>
 
-        <section className={styles.listArticles}>
-          <h2>Vandaag 11 April 2022</h2>
-          <div className={styles.homeListArticles}>
-            {featuredArticles.data.map(a => {
-              return (
-                <CardList
-                  key={a.id}
-                  title={a.title}
-                  image="/assets/article-image.jpeg"
-                />
-              );
-            })}
+        <section className={styles.articlesWithSidebar}>
+          <div className={styles.listArticles}>
+            <h2>Vandaag 11 April 2022</h2>
+            <div className={styles.listArticlesContainer}>
+              {featuredArticles.data.map(a => {
+                return (
+                  <CardList
+                    key={a.id}
+                    title={a.title}
+                    image="/assets/article-image.jpeg"
+                  />
+                );
+              })}
+            </div>
           </div>
+          <aside>
+            <h3>Top 3 Bookmakers</h3>
+          </aside>
         </section>
 
         {/* <mobileAdslot1
