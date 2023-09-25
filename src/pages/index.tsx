@@ -3,7 +3,6 @@ import News from "@/assets/svg/news.svg";
 import { Card, CardMobile } from "@/components/molecules";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
 import { SwiperClass } from "swiper/react";
-import classNames from "classnames";
 import ArrowRight from "@/assets/svg/arrow-right.svg";
 import ArrowLeft from "@/assets/svg/arrow-left.svg";
 import { useCallback, useState } from "react";
@@ -32,6 +31,10 @@ export const getStaticProps = async () => {
   }
 };
 
+//TODO move localhost api to client side ?
+// Enhanche api setup with handler
+// graphql task
+
 export default function Home({ articles }: HomeProps) {
   const [first, second, third, ...restArticles] = articles;
   const [swiperRef, setSwiperRef] = useState<SwiperClass>();
@@ -48,10 +51,10 @@ export default function Home({ articles }: HomeProps) {
   return (
     <>
       <main className={styles.main} style={{ height: "150vh" }}>
-        <adslot1
+        {/* <adslot1
           className={classNames(styles.slotAdd, styles.slot1)}
           suppressHydrationWarning
-        ></adslot1>
+        ></adslot1> */}
         <div className={styles.breakingNews}>
           <div className={styles.container}>
             <News />
@@ -95,10 +98,10 @@ export default function Home({ articles }: HomeProps) {
           />
         </section>
 
-        <mobileAdslot1
+        {/* <mobileAdslot1
           className={classNames(styles.slotAdd, styles.mobileSlot1)}
           suppressHydrationWarning
-        ></mobileAdslot1>
+        ></mobileAdslot1> */}
       </main>
     </>
   );
